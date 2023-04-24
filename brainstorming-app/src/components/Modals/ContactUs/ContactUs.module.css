@@ -1,0 +1,43 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+  .modal * {
+    font-size: 1rem; /* Set your desired font size */
+    line-height: 1.5; /* Set your desired line-height */
+    font-family: 'Arial', sans-serif; /* Set your desired font family */
+    color: #333; /* Set your desired text color */
+  }
+  .modal h2 {
+  font-size: 1.5rem; /* Set the desired font size for your title (h2) */
+}
+.modal button{
+    color: white;
+}
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,1 @@
+Here goes all general components that will be used in the entire project
