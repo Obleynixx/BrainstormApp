@@ -1,0 +1,14 @@
+.blockcontainer {
+    position: absolute;
+    cursor: grab;
+    border: 1px solid #343a40;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    user-select: none;
+  }
+  
+  .block-container.grabbing {
+    cursor: grabbing;
+  }
+  

@@ -1,0 +1,23 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f0f2f5;
+  }
+  
+  .landing-header {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .landing-main {
+    margin: 2rem;
+    font-size: 1.2rem;
+  }
+  .logo{
+    width: 20%;
+  }

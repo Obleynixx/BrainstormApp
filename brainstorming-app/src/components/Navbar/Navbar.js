@@ -48,6 +48,11 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink exact to="/board" activeClassName="navbar-link-active" className="nav-link">
+                  Board
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink exact to="/about" activeClassName="navbar-link-active" className="nav-link">
                   About
                 </NavLink>
