@@ -20,13 +20,13 @@
     position: relative;
   }
   .modal * {
-    font-size: 1rem; /* Set your desired font size */
-    line-height: 1.5; /* Set your desired line-height */
-    font-family: 'Arial', sans-serif; /* Set your desired font family */
-    color: #333; /* Set your desired text color */
+    font-size: 1rem; 
+    line-height: 1.5; 
+    font-family: 'Arial', sans-serif; 
+    color: #333; 
   }
   .modal h2 {
-  font-size: 1.5rem; /* Set the desired font size for your title (h2) */
+  font-size: 1.5rem;
 }
 .modal button{
     color: white;

@@ -47,7 +47,7 @@ const Block = ({ id, content, x, y, onContextMenu, setIsDraggingBlock, zoom }) =
             onMouseMove={handleMouseMove}
             onContextMenu={(e) => {
                 if (onContextMenu) {
-                    e.stopPropagation(); // Stop event propagation
+                    e.stopPropagation();
                     onContextMenu(e, id);
                 }
             }}
