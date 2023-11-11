@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 import Navbar from '../../components/Navbar/Navbar';
 import Board from '../../components/Board/Board';
 import ContextMenu from '../../components/ContextMenu/ContextMenu';
@@ -42,13 +40,11 @@ function BoardPage() {
 
     const handleContextMenu = (e, blockId = null) => {
         e.preventDefault();
-
-        console.log('blockId:', blockId); // Debug log
         setMenu({
             visible: true,
             x: e.clientX,
             y: e.clientY,
-            blockId: blockId, // Pass the block id as an argument
+            blockId: blockId,
         });
     };
 
