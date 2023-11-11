@@ -11,7 +11,7 @@ function Home() {
       <Navbar />
       <header className={`${styles["landing-header"]}`}>
         <img src={logo} alt="Logo" className={`${styles["logo"]} d-inline-block`} />
-        <h1>Welcome to Brainstorm!</h1>
+        <h1>Welcome to IdeaSpark!</h1>
       </header>
       <main className={`${styles["landing-main"]}`}>
         <p>Unlock your creativity with ease. Our app is your go-to tool for building and organizing ideas, one block at a time! </p>

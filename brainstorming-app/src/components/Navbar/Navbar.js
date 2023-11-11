@@ -3,31 +3,23 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../assets/logo.png';
 import LoginModal from '../Modals/Login/LoginModal.js';
-import RegisterModal from '../Modals/Register/RegisterModal.js';
+import useIsDesktop from '../Hooks/UserIsDesktop/useIsDesktop.js';
 
 function Navbar() {
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
   const openLoginModal = () => {
     setShowLoginModal(true);
-    setShowRegisterModal(false);
-  };
-
-  const openRegisterModal = () => {
-    setShowRegisterModal(true);
-    setShowLoginModal(false);
   };
 
   const closeLoginModal = () => {
     setShowLoginModal(false);
   };
 
-  const closeRegisterModal = () => {
-    setShowRegisterModal(false);
-  };
+  const isDesktop = useIsDesktop();
+
   return (
     <>
-      <nav className={`${styles['custom-navbar']} ${styles.navbar} navbar navbar-expand-lg navbar-light bg-light`}>
+      <nav className={`${styles['custom-navbar']} ${styles.navbar} navbar navbar-expand-md navbar-light bg-light`}>
         <div className="container-fluid">
           <a className={`${styles['navbar-brand']} navbar-brand`} href="/">
             <img src={logo} alt="Logo" className="d-inline-block" />
@@ -42,16 +34,15 @@ function Navbar() {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink exact to="/brainstorm" activeClassName="navbar-link-active" className="nav-link">
-                  Brainstorm Tool
-                </NavLink>
-              </li>
-              <li className="nav-item">
+              {isDesktop ? (
                 <NavLink exact to="/board" activeClassName="navbar-link-active" className="nav-link">
                   Board
                 </NavLink>
-              </li>
+              ) : (
+                <NavLink exact to="/brainstorm" activeClassName="navbar-link-active" className="nav-link">
+                  Brainstorm Tool
+                </NavLink>
+              )}
               <li className="nav-item">
                 <NavLink exact to="/about" activeClassName="navbar-link-active" className="nav-link">
                   About
@@ -59,13 +50,11 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <button className={`btn btn-primary ${styles['login-button']}`} onClick={openRegisterModal}>Register</button>
           <button className={`btn btn-primary ${styles['login-button']}`} onClick={openLoginModal}>Login</button>
         </div>
 
       </nav>
       {showLoginModal && <LoginModal closeModal={closeLoginModal} />}
-      {showRegisterModal && <RegisterModal closeModal={closeRegisterModal} />}
 
     </>
 

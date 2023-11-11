@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
+import RegisterModal from '../Register/RegisterModal.js';
 
 function Login({ closeModal }) {
   const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ function Login({ closeModal }) {
   const [wrongInput, setWrongInput] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,7 +25,7 @@ function Login({ closeModal }) {
         body: JSON.stringify({ email, password }),
       });
       console.log(response.body);
-      if (response.status === 401){
+      if (response.status === 401) {
         setIsProcessing(false);
         setIsLoading(false);
         setWrongInput(true);
@@ -42,7 +44,17 @@ function Login({ closeModal }) {
     }
     console.log({ email, password });
   }
+
+  const openRegisterModal = () => {
+    setShowRegisterModal(true);
+  };
+  
+  const closeRegisterModal = () => {
+    setShowRegisterModal(false);
+  };
+
   return (
+    <>
     <div className={styles.modalOverlay}>
       <div className={`${styles.modal} card`}>
         <div className="card-header">
@@ -59,6 +71,9 @@ function Login({ closeModal }) {
               <input type="password" id="password" name="password" className="form-control" onChange={(e) => setPassword(e.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary">Login</button>
+            <div>
+              Don't have an account yet? <a href="#" onClick={openRegisterModal}>Register here!</a>
+            </div>
             <div className={`${wrongInput ? styles.shown : styles.hidden} mb-3`}>
               <h1>Wrong password or email</h1>
             </div>
@@ -78,6 +93,10 @@ function Login({ closeModal }) {
         </div>
       </div>
     </div>
+    {showRegisterModal && <RegisterModal closeModal={closeRegisterModal} />}
+    </>
+    
+    
   );
 }
 
